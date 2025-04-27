@@ -1,0 +1,35 @@
+.upload-container {
+  background-color: #E6E6E6;  
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+  width: 36.75rem;
+  height: 5.625rem;
+  border-radius: 10px;
+  
+}
+
+.upload-container:hover{
+  transform: scale(1.1);  
+}
+
+.upload-label{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 1.375rem;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.upload-label:hover{
+  cursor: pointer;
+}
+
+.upload-icon{
+  width: 4rem;
+  height: 4rem;  
+}
