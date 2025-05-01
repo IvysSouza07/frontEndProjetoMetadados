@@ -1,6 +1,8 @@
 import { useState } from "react";
 import React from "react";
 import "./uploadForm.css";
+import searchfile from "../../assets/search-file.png";
+
 
 const UploadForm = ({ onFileUpload }) => {
     const [isDragging, setIsDragging] = useState(false);
@@ -48,7 +50,7 @@ const handleFileChange = (e) => {
       />
       <label htmlFor="fileInput" className="upload-label">
         <p>Selecione ou arraste um arquivo de vídeo</p>
-        <img src='src/assets/search-file.png' alt="Upload Icon" className="upload-icon" />
+        <img src={searchfile} alt="Upload Icon" className="upload-icon" />
       </label>
     </div>
   );
