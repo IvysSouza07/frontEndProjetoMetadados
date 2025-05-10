@@ -1,91 +1,99 @@
 .upload-wrapper {
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    /* background-color: #f9f9f9; */
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
-  }
-  
-  .upload-info {
-    width: 36.75rem;  
-    margin-top: 20px;
-    text-align: left;
-    padding: 10px;
-    border-radius: 8px;
-  }
-  
-  .upload-info p {
-    margin: 6px 0;
-    font-size: 14px;
-    color: #ffffff;
-  }
-
-  .file-info-div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-
-  .file-info{
-    margin-bottom: 18px;
-    display: flex;
-    flex-direction: row;
-    column-gap: 20px;
-  }
-
-  .cancel-upload-button{
-    width: 2.375rem;
-    height: 2rem;
-    background-color: #EA3E3E;
-    border: none;
-    border-radius: 10px;
-    margin-right: 14px;
-    margin-bottom: 18px;
-    cursor: pointer;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.514);
-  }
-
-  .cancel-upload-button:active {
-    transform: scale(0.95);
-  }
-  
-  .progress-bar {
-    width: 100%;
-    height: 32px;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .progress {
-    height: 100%;
-    background-color: #00DAC8;
-    width: 0%;
-    transition: width 0.4s ease;
-  }
-  .modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 1000;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.modal {
-  background: white;
-  padding: 20px 30px;
-  border-radius: 10px;
+.upload-mode-toggle {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
   text-align: center;
+}
+
+.upload-mode-toggle label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.upload-info {
+  width: 36.75rem;
+  margin-top: 20px;
+  text-align: left;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.upload-info p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.file-info-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.file-info {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  align-items: center;
+}
+
+.cancel-upload-button {
+  width: 2.375rem;
+  height: 2rem;
+  background-color: #EA3E3E;
+  border: none;
+  border-radius: 10px;
+  margin-right: 14px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.514);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cancel-upload-button:active {
+  transform: scale(0.95);
+}
+
+.cancel-upload-button img {
+  width: 16px;
+  height: 16px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 32px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: #00DAC8;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.error-message {
+  color: #ff4444;
+  margin-top: 8px;
+  font-size: 14px;
 }
 
 .modal-overlay {
@@ -121,11 +129,17 @@
   cursor: pointer;
 }
 
-.positive-icon{
+.positive-icon {
   width: 50px;
   height: 50px;
+  margin: 15px 0;
 }
 
 .modal-content .close:hover {
   color: #000;
+}
+
+.modal-content h3 {
+  margin: 10px 0;
+  color: #333;
 }

@@ -1,38 +1,43 @@
-import { useState } from "react";
+// Importando módulos necessários e estilos
 import React from "react";
-import "./uploadForm.css";
-import searchfile from "../../assets/search-file.png";
+import PropTypes from "prop-types";
+import "./uploadForm.css"; // Estilos específicos para o componente UploadForm
+import searchfile from "../../assets/search-file.png"; // Ícone para busca de arquivos
 
-
+// Componente UploadForm para lidar com uploads de arquivos
 const UploadForm = ({ onFileUpload }) => {
-    const [isDragging, setIsDragging] = useState(false);
-    
-const handleDrop = (e) => {
+  const [isDragging, setIsDragging] = React.useState(false); // Estado de arrastar e soltar
+
+  // Função para lidar com o evento de soltar arquivo
+  const handleDrop = (e) => {
     e.preventDefault();
     setIsDragging(false);
     const file = e.dataTransfer.files[0];
     if (file && file.type.startsWith("video/")) {
-        onFileUpload(file);
+      onFileUpload(file);
     } else {
-        alert("Por favor envie um arquivo de vídeo.");
+      alert("Por favor envie um arquivo de vídeo.");
     }
-};
+  };
 
-const handleDragOver = (e) => {
+  // Função para lidar com o evento de arrastar sobre o componente
+  const handleDragOver = (e) => {
     e.preventDefault();
     setIsDragging(true);
-};
+  };
 
-const handleDragLeave = () => {
+  // Função para lidar com o evento de sair do componente ao arrastar
+  const handleDragLeave = () => {
     setIsDragging(false);
-};
+  };
 
-const handleFileChange = (e) => {
+  // Função para lidar com a seleção de arquivos via input
+  const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file && file.type.startsWith("video/")) {
-        onFileUpload(file);
+      onFileUpload(file);
     }
-};
+  };
 
   return (
     <div
@@ -50,10 +55,14 @@ const handleFileChange = (e) => {
       />
       <label htmlFor="fileInput" className="upload-label">
         <p>Selecione ou arraste um arquivo de vídeo</p>
-        <img src={searchfile} alt="Upload Icon" className="upload-icon" />
+        <img src={searchfile} alt="Ícone de Upload" className="upload-icon" />
       </label>
     </div>
   );
 };
 
-export default UploadForm;
+UploadForm.propTypes = {
+  onFileUpload: PropTypes.func.isRequired, // Função de callback para upload de arquivos
+};
+
+export default UploadForm; // Exportando o componente UploadForm

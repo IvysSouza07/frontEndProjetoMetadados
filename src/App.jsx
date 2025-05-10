@@ -1,23 +1,15 @@
-import React, { useState } from "react";
-import UploadForm from "./components/uploadForm/uploadForm";
+// Importando React e o componente VideoUploader
+import React from "react";
 import VideoUploader from "./components/videoUploader/videoUploader";
-import "./App.css";
+import "./App.css"; // Importando estilos globais para o componente App
 
+// Componente principal da aplicação
 function App() {
-  const [video, setVideo] = useState(null);
-
   return (
     <div>
-       <VideoUploader />
-
-      {video && (
-        <video controls width="500" style={{ marginTop: "20px" }}>
-          <source src={URL.createObjectURL(video)} type={video.type} />
-          Seu navegador não suporta vídeo.
-        </video>
-      )}
+      <VideoUploader /> {/* Renderizando o componente VideoUploader */}
     </div>
   );
 }
 
-export default App;
+export default App; // Exportando o componente App como exportação padrão
