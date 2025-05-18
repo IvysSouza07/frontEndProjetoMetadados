@@ -1,13 +1,20 @@
+/* Upload Wrapper Styles */
 .upload-wrapper {
-  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
+  
+  padding: 2.5rem 1.5rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  color: #e3eafc;
 }
 
+/* Upload Mode Toggle Styles */
 .upload-mode-toggle {
   margin-bottom: 20px;
   padding: 10px;
@@ -22,12 +29,17 @@
   cursor: pointer;
 }
 
+/* Upload Info Styles */
 .upload-info {
   width: 36.75rem;
-  margin-top: 20px;
+  margin-top: 16px;
   text-align: left;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: #181c24;
+  box-shadow: 0 2px 16px #0006;
+  box-sizing: border-box;
+  color: #e3eafc;
 }
 
 .upload-info p {
@@ -36,27 +48,35 @@
   color: #ffffff;
 }
 
+/* File Info Styles */
 .file-info-div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 16px;
+  box-sizing: border-box;
+  color: #e3eafc;
 }
 
 .file-info {
   margin-bottom: 18px;
   display: flex;
   flex-direction: row;
-  column-gap: 20px;
+  column-gap: 12px;
   align-items: center;
+  box-sizing: border-box;
+  color: #e3eafc;
 }
 
+/* Cancel Upload Button Styles */
 .cancel-upload-button {
   width: 2.375rem;
   height: 2rem;
-  background-color: #EA3E3E;
-  border: none;
-  border-radius: 10px;
+  background: #232a36;
+  border: 1px solid #00DAC8;
+  color: #00DAC8;
+  border-radius: 8px;
   margin-right: 14px;
   margin-bottom: 18px;
   cursor: pointer;
@@ -64,6 +84,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background 0.2s, border 0.2s;
+}
+
+.cancel-upload-button:hover {
+  background: #00DAC8;
+  color: #181c24;
+  border: 1px solid #00DAC8;
 }
 
 .cancel-upload-button:active {
@@ -75,27 +102,31 @@
   height: 16px;
 }
 
+/* Progress Bar Styles */
 .progress-bar {
   width: 100%;
   height: 32px;
-  background-color: #e0e0e0;
   border-radius: 10px;
+  box-shadow: 0 1px 4px #00DAC844;
   overflow: hidden;
+  display: block;
 }
 
 .progress {
   height: 100%;
-  background-color: #00DAC8;
+  background: linear-gradient(90deg, #2497E3 0%, #00DAC8 100%);
   width: 0%;
   transition: width 0.4s ease;
 }
 
+/* Error Message Styles */
 .error-message {
   color: #ff4444;
   margin-top: 8px;
   font-size: 14px;
 }
 
+/* Modal Styles */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -110,13 +141,16 @@
 }
 
 .modal-content {
-  background: white;
+  background: #232a36;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 16px;
   position: relative;
   max-width: 400px;
   width: 80%;
   text-align: center;
+  box-shadow: 0 4px 24px #000a;
+  box-sizing: border-box;
+  color: #e3eafc;
 }
 
 .modal-content .close {
@@ -129,12 +163,6 @@
   cursor: pointer;
 }
 
-.positive-icon {
-  width: 50px;
-  height: 50px;
-  margin: 15px 0;
-}
-
 .modal-content .close:hover {
   color: #000;
 }
@@ -142,4 +170,79 @@
 .modal-content h3 {
   margin: 10px 0;
   color: #333;
+}
+
+.positive-icon {
+  width: 50px;
+  height: 50px;
+  margin: 15px 0;
+}
+
+/* Video Preview Wrapper Styles */
+.video-preview-wrapper {
+  display: flex;
+  flex-direction: row; /* Desktop: timestamp à esquerda, vídeo à direita */
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.video-transcript {
+  order: 1;
+}
+
+.video-player {
+  order: 2;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .video-preview-wrapper {
+    flex-direction: column-reverse !important; /* vídeo em cima, timestamp embaixo */
+    align-items: stretch !important;
+    max-width: 100vw !important;
+    gap: 16px !important;
+  }
+  .video-transcript, .video-player {
+    max-width: 100vw !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .upload-wrapper {
+    padding: 0 2vw !important;
+  }
+  .upload-info {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 4px !important;
+  }
+  .file-info-div {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+  .file-info {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+  }
+  .video-preview-wrapper {
+    flex-direction: column-reverse !important; /* Place video on top and timestamp below */
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+  .video-transcript {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 8px !important;
+  }
+  .video-player {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
 }

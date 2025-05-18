@@ -6,7 +6,8 @@ import searchfile from "../../assets/search-file.png"; // Ícone para busca de a
 
 // Componente UploadForm para lidar com uploads de arquivos
 const UploadForm = ({ onFileUpload }) => {
-  const [isDragging, setIsDragging] = React.useState(false); // Estado de arrastar e soltar
+  // Estado para rastrear interação de arrastar e soltar
+  const [isDragging, setIsDragging] = React.useState(false); // Indica se um arquivo está sendo arrastado sobre o componente
 
   // Função para lidar com o evento de soltar arquivo
   const handleDrop = (e) => {

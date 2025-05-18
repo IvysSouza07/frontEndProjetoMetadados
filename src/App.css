@@ -11,6 +11,35 @@ body{
   justify-content: center;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
+  font-size: 1.05em;
+}
+
+body, #root {
+  min-width: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#root {
+  min-width: 0;
+  width: 100vw;
+  padding: 0;
+}
+
+@media (max-width: 900px) {
+  body {
+    padding: 0 !important;
+    font-size: 1em !important;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 0.97em !important;
+    padding: 0 !important;
+  }
+  #root {
+    padding: 0 !important;
+  }
 }
 
 

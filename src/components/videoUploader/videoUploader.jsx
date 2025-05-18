@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import UploadForm from "../uploadForm/uploadForm"; // Componente para upload de arquivos
 import VideoPlayer from "../videoPlayer/videoPlayer"; // Componente para reprodução de vídeos
+import TimeStamp from "../TimeStamp/timeStamp"; // Importando o componente TimeStamp
 import "./videoUploader.css"; // Estilos específicos para o componente VideoUploader
 import cancelx from "../../assets/cancel-x.png"; // Ícone de cancelamento
 import videofile from "../../assets/video-file.png"; // Ícone de arquivo de vídeo
@@ -11,21 +12,25 @@ import positive from "../../assets/positive.png"; // Ícone de sucesso
 
 // Componente VideoUploader gerencia uploads de vídeo e exibe o progresso
 const VideoUploader = () => {
-  const [progress, setProgress] = useState(0); // Porcentagem de progresso do upload
-  const [fileInfo, setFileInfo] = useState(null); // Informações sobre o arquivo enviado
-  const [showSuccessModal, setShowSuccessModal] = useState(false); // Visibilidade do modal de sucesso
+  // State for managing upload progress, file information, and errors
+  const [progress, setProgress] = useState(0); // Upload progress percentage
+  const [fileInfo, setFileInfo] = useState(null); // Information about the uploaded file
+  const [showSuccessModal, setShowSuccessModal] = useState(false); // Visibility of the success modal
   const [uploadMode, setUploadMode] = useState(
-    import.meta.env.VITE_USE_FAKE_UPLOAD === "true" // Alterna entre upload real e simulado
+    import.meta.env.VITE_USE_FAKE_UPLOAD === "true" // Determines if fake upload mode is enabled
   );
-  const [error, setError] = useState(null); // Mensagem de erro durante o upload
-  const [videoURL, setVideoURL] = useState(null); // URL do vídeo enviado
-  const [isUploadComplete, setIsUploadComplete] = useState(false); // Status de conclusão do upload
+  const [error, setError] = useState(null); // Error message during upload
+  const [videoURL, setVideoURL] = useState(null); // URL of the uploaded video
+  const [isUploadComplete, setIsUploadComplete] = useState(false); // Upload completion status
+  const [videoId] = useState("12345"); // ID fictício do vídeo para o TimeStamp
 
   const controllerRef = useRef(null); // Referência para cancelar uploads reais
   const intervalRef = useRef(null); // Referência para gerenciar intervalos de upload simulado
+  const videoRef = useRef(null); // Referência para o elemento de vídeo
 
   // Função para lidar com uploads reais usando Axios
   const handleRealUpload = async (file) => {
+    setIsUploadComplete(false); // Garante que a barra aparece ao iniciar upload
     setFileInfo({
       name: file.name,
       type: file.type,
@@ -69,6 +74,7 @@ const VideoUploader = () => {
 
   // Função para simular uploads com progresso falso
   const fakeUpload = (file) => {
+    setIsUploadComplete(false); // Garante que a barra aparece ao iniciar upload
     setFileInfo({
       name: file.name,
       type: file.type,
@@ -107,12 +113,12 @@ const VideoUploader = () => {
     }, 200 + Math.random() * 300);
   };
 
-  // Função para lidar com uploads de arquivos com base no modo selecionado
+  // Function to handle file uploads based on the selected mode (real or fake)
   const handleUpload = (file) => {
     return uploadMode ? fakeUpload(file) : handleRealUpload(file);
   };
 
-  // Função para cancelar uploads em andamento
+  // Function to cancel ongoing uploads
   const cancelUpload = () => {
     if (controllerRef.current) {
       controllerRef.current.abort();
@@ -150,7 +156,7 @@ const VideoUploader = () => {
         </>
       )}
 
-      {!isUploadComplete && fileInfo && (
+      {fileInfo && !isUploadComplete && (
         <div className="upload-info">
           <div className="file-info-div">
             <div className="file-info">
@@ -190,9 +196,18 @@ const VideoUploader = () => {
         </div>
       )}
 
-      {videoURL && (
-        <div className="video-preview">
-          <VideoPlayer src={videoURL} />
+      {videoURL && (typeof videoURL === 'string') && (
+        <div className="video-preview-wrapper">
+          <div className="video-player">
+            <VideoPlayer src={videoURL} ref={videoRef} />
+          </div>
+          <div className="video-transcript">
+            <TimeStamp
+              videoRef={videoRef}
+              videoId={videoId}
+              apiEndpoint={import.meta.env.VITE_API_URL + "/transcripts"}
+            />
+          </div>
         </div>
       )}
     </div>

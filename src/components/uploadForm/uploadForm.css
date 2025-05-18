@@ -1,19 +1,27 @@
+
+
+/* Upload Container Styles */
 .upload-container {
-  background-color: #E6E6E6;  
+  background: #e6e6e6;
   display: flex;
   justify-content: center;
-  align-items: center ;
+  align-items: center;
   width: 36.75rem;
   height: 5.625rem;
-  border-radius: 10px;
-  
+  border-radius: 14px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 32px #000a;
+  transition: box-shadow 0.2s, transform 0.2s;
+  color: #e3eafc;
 }
 
-.upload-container:hover{
-  transform: scale(1.1);  
+.upload-container:hover {
+  box-shadow: 0 4px 24px #00DAC844;
+  transform: scale(1.03);
 }
 
-.upload-label{
+/* Upload Label Styles */
+.upload-label {
   width: 100%;
   height: 100%;
   display: flex;
@@ -21,15 +29,44 @@
   align-items: center;
   flex-direction: row;
   column-gap: 1.375rem;
-  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
   font-size: 20px;
+  color: black;
 }
 
-.upload-label:hover{
+.upload-label:hover {
   cursor: pointer;
 }
 
-.upload-icon{
+/* Upload Icon Styles */
+.upload-icon {
   width: 4rem;
-  height: 4rem;  
+  height: 4rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .upload-container {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 2vw !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .upload-container {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 4.5rem !important;
+    padding: 0 1vw !important;
+  }
+  .upload-label {
+    font-size: 1em !important;
+    column-gap: 0.7rem !important;
+  }
+  .upload-icon {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+  }
 }

@@ -1,17 +1,22 @@
 // Importando módulos necessários e estilos
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, forwardRef } from "react";
 import PropTypes from "prop-types";
-import play from "../../assets/play.png"; // Ícone de reprodução
-import pause from "../../assets/pause.png"; // Ícone de pausa
-import "./videoPlayer.css"; // Estilos específicos para o componente VideoPlayer
+import play from "../../assets/play.png";
+import pause from "../../assets/pause.png";
+import "./videoPlayer.css";
 
-// Componente VideoPlayer para reprodução de vídeos com controles personalizados
-const VideoPlayer = ({ src }) => {
-  const videoRef = useRef(null); // Referência para o elemento de vídeo
-  const [isPlaying, setIsPlaying] = useState(false); // Estado de reprodução
-  const [progress, setProgress] = useState(0); // Porcentagem de progresso da reprodução
+// Player customizado React
+const VideoPlayer = forwardRef(({ src }, ref) => {
+  const localVideoRef = useRef(null);
+  const videoRef = ref || localVideoRef;
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(1);
+  const [showControls, setShowControls] = useState(false);
 
-  // Função para alternar entre os estados de reprodução e pausa
+  // Play/Pause
   const togglePlay = () => {
     const video = videoRef.current;
     if (video.paused) {
@@ -23,52 +28,103 @@ const VideoPlayer = ({ src }) => {
     }
   };
 
-  // Função para atualizar o progresso conforme o vídeo é reproduzido
+  // Atualiza progresso
   const handleTimeUpdate = () => {
     const video = videoRef.current;
-    const percent = (video.currentTime / video.duration) * 100;
-    setProgress(percent);
+    setCurrentTime(video.currentTime);
+    setProgress((video.currentTime / video.duration) * 100);
   };
 
-  // Função para manipular alterações manuais na barra de progresso
-  const handleProgressChange = (e) => {
+  // Volume
+  const handleVolumeChange = (e) => {
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
+    }
+  };
+
+  // Duração
+  const handleLoadedMetadata = () => {
     const video = videoRef.current;
-    const newTime = (e.target.value / 100) * video.duration;
-    video.currentTime = newTime;
-    setProgress(e.target.value);
+    setDuration(video.duration);
   };
 
-  // Reseta o estado de reprodução quando a fonte do vídeo muda
+  // Mostrar controles ao mover mouse
+  const handleMouseMove = () => {
+    setShowControls(true);
+    clearTimeout(window._hideControlsTimeout);
+    window._hideControlsTimeout = setTimeout(() => setShowControls(false), 2000);
+  };
+
   useEffect(() => {
     setIsPlaying(false);
     setProgress(0);
   }, [src]);
 
   return (
-    <div className="custom-video-player">
-      <div className="video-container">
-      <video className="video-screen"
+    <div className="video-container" onMouseMove={handleMouseMove}>
+      <video
+        className="video-screen"
         ref={videoRef}
         src={src}
         onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleLoadedMetadata}
         onClick={togglePlay}
+        volume={volume}
+        style={{ width: "100%", height: "100%", display: "block" }}
       />
-      </div>
-      <div className="controls">
-        <button className="botao-player" onClick={togglePlay}>
-          <img className="botao-player-icon" src= { isPlaying ? pause : play} alt= {isPlaying ? "Pause" : "Play"} />
-        </button>
-        <input className="range-bar"
+      <div className="video-controls" style={{ opacity: showControls ? 1 : 0 }} tabIndex={0}>
+        <input
+          className="progress-container"
           type="range"
           min="0"
           max="100"
+          step="0.1"
           value={progress}
-          onChange={handleProgressChange}
+          onChange={e => {
+            const video = videoRef.current;
+            const newTime = (e.target.value / 100) * video.duration;
+            video.currentTime = newTime;
+            setProgress(e.target.value);
+          }}
+          aria-label="Progresso do vídeo"
         />
+        <div className="controls-bottom">
+          <div className="controls-left">
+            <button className="play-btn" onClick={togglePlay} aria-label={isPlaying ? "Pause" : "Play"}>
+              <img
+                className="botao-player-icon"
+                src={isPlaying ? pause : play}
+                alt={isPlaying ? "Pause" : "Play"}
+                style={{ width: 24, height: 24 }}
+              />
+            </button>
+            <div className="volume-container">
+              <input
+                className="volume-slider"
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value={volume}
+                onChange={handleVolumeChange}
+                aria-label="Volume"
+              />
+            </div>
+            <span className="time-display">
+              {new Date(currentTime * 1000).toISOString().substr(11, 8)} /{" "}
+              {new Date(duration * 1000).toISOString().substr(11, 8)}
+            </span>
+          </div>
+          <div className="controls-right">
+            {/* Botão de fullscreen pode ser implementado aqui se desejar */}
+          </div>
+        </div>
       </div>
     </div>
   );
-};
+});
 
 VideoPlayer.propTypes = {
   src: PropTypes.string.isRequired, // URL da fonte do vídeo é obrigatória
