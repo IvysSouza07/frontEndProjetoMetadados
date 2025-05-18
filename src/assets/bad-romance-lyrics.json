@@ -1,27 +1,407 @@
 [
-  { "start": "00:00", "end": "00:14", "text": "Oh-oh-oh-oh-oh\nOh-oh-oh-oh-oh-oh-oh\nCaught in a bad romance" },
-  { "start": "00:14", "end": "00:28", "text": "Oh-oh-oh-oh-oh\nOh-oh-oh-oh-oh-oh-oh\nCaught in a bad romance" },
-  { "start": "00:28", "end": "00:42", "text": "Ra ra-ah-ah-ah\nRoma, Roma-ma\nGaga, oh la-la\nWant your bad romance" },
-  { "start": "00:42", "end": "00:56", "text": "Ra ra-ah-ah-ah\nRoma, Roma-ma\nGaga, oh la-la\nWant your bad romance" },
-  { "start": "00:56", "end": "01:10", "text": "I want your ugly, I want your disease\nI want your everything as long as it's free\nI want your love\nLove, love, love, I want your love, yeah" },
-  { "start": "01:10", "end": "01:24", "text": "I want your drama, the touch of your hand (hey)\nI want your leather studded kiss in the sand\nI want your love\nLove, love, love, I want your love" },
-  { "start": "01:24", "end": "01:38", "text": "You know that I want you\nAnd you know that I need you\nI want it bad\nYour bad romance" },
-  { "start": "01:38", "end": "01:52", "text": "I want your love and I want your revenge\nYou and me could write a bad romance" },
-  { "start": "01:52", "end": "02:06", "text": "I want your love and all your lover's revenge\nYou and me could write a bad romance" },
-  { "start": "02:06", "end": "02:20", "text": "Oh-oh-oh-oh-oh\nOh-oh-oh-oh-oh-oh-oh\nCaught in a bad romance" },
-  { "start": "02:20", "end": "02:34", "text": "Oh-oh-oh-oh-oh\nOh-oh-oh-oh-oh-oh-oh\nCaught in a bad romance" },
-  { "start": "02:34", "end": "02:48", "text": "Ra ra-ah-ah-ah\nRoma, Roma-ma\nGaga, oh la-la\nWant your bad romance" },
-  { "start": "02:48", "end": "03:02", "text": "I want your horror, I want your design\n'Cause you're a criminal as long as you're mine\nI want your love" },
-  { "start": "03:02", "end": "03:16", "text": "I want your psycho, your vertigo stick\nWant you in my rear window, baby, you're sick\nI want your love\nLove, love, love, I want your love" },
-  { "start": "03:16", "end": "03:30", "text": "You know that I want you\nAnd you know that I need you\n('Cause I'm a free bitch, baby)\nI want it bad\nA bad romance" },
-  { "start": "03:30", "end": "03:44", "text": "I want your love and I want your revenge\nYou and me could write a bad romance" },
-  { "start": "03:44", "end": "03:58", "text": "I want your love and all your lover's revenge\nYou and me could write a bad romance" },
-  { "start": "03:58", "end": "04:08", "text": "Walk, walk\nFashion, baby, work it\nMove that bitch crazy" },
-  { "start": "04:08", "end": "04:18", "text": "Walk, walk\nFashion, baby, work it\nMove that bitch crazy" },
-  { "start": "04:18", "end": "04:28", "text": "Walk, walk\nFashion, baby, work it\nMove that bitch crazy" },
-  { "start": "04:28", "end": "04:40", "text": "Walk, walk\nPassion, baby, work it\nI'm a free bitch, baby" },
-  { "start": "04:40", "end": "05:10", "text": "I want your love and I want your revenge\nI want your love, I don't wanna be friends\nJe veux ton amour et je veux ta revanche\nJe veux ton amour, I don't wanna be friends" },
-  { "start": "05:10", "end": "05:20", "text": "I don't wanna be friends\n(I want your bad romance, I want your bad romance)\nI don't wanna be friends\nWant your bad romance!" },
-  { "start": "05:20", "end": "05:34", "text": "I want your love and I want your revenge\nYou and me could write a bad romance" },
-  { "start": "05:34", "end": "05:48", "text": "Oh-oh-oh-oh-oh\nOh-oh-oh-oh-oh-oh-oh\nCaught in a bad romance\nRa ra-ah-ah-ah\nRoma, Roma-ma\nGaga, oh la-la\nWant your bad romance" }
+  {
+    "start": "00:00",
+    "end": "00:02",
+    "text": "Oh"
+  },
+  {
+    "start": "00:30",
+    "end": "00:32",
+    "text": "Rora"
+  },
+  {
+    "start": "00:32",
+    "end": "00:34",
+    "text": "Roma Roma"
+  },
+  {
+    "start": "00:34",
+    "end": "00:35",
+    "text": "Gaga"
+  },
+  {
+    "start": "00:35",
+    "end": "00:36",
+    "text": "Ula la"
+  },
+  {
+    "start": "00:36",
+    "end": "00:38",
+    "text": "What you're about to romance"
+  },
+  {
+    "start": "00:38",
+    "end": "00:40",
+    "text": "Parah"
+  },
+  {
+    "start": "00:40",
+    "end": "00:42",
+    "text": "Roma"
+  },
+  {
+    "start": "00:42",
+    "end": "00:44",
+    "text": "Gaga"
+  },
+  {
+    "start": "00:44",
+    "end": "00:46",
+    "text": "Ula la"
+  },
+  {
+    "start": "00:46",
+    "end": "00:48",
+    "text": "What you're about to romance"
+  },
+  {
+    "start": "00:48",
+    "end": "00:50",
+    "text": "I want you to play, I want you to see"
+  },
+  {
+    "start": "00:50",
+    "end": "00:52",
+    "text": "I want you to see"
+  },
+  {
+    "start": "00:52",
+    "end": "00:54",
+    "text": "Everything is longer, it's free"
+  },
+  {
+    "start": "00:54",
+    "end": "00:56",
+    "text": "I want you all"
+  },
+  {
+    "start": "00:56",
+    "end": "00:58",
+    "text": "Love love love"
+  },
+  {
+    "start": "00:58",
+    "end": "01:00",
+    "text": "I want your love"
+  },
+  {
+    "start": "01:02",
+    "end": "01:06",
+    "text": "I want you to drive over the torture you had"
+  },
+  {
+    "start": "01:06",
+    "end": "01:10",
+    "text": "I want you to let the stutter kiss in the sea"
+  },
+  {
+    "start": "01:10",
+    "end": "01:12",
+    "text": "I don't want you lost"
+  },
+  {
+    "start": "01:12",
+    "end": "01:14",
+    "text": "Love love love"
+  },
+  {
+    "start": "01:14",
+    "end": "01:16",
+    "text": "I want your love"
+  },
+  {
+    "start": "01:16",
+    "end": "01:20",
+    "text": "You know that I want you"
+  },
+  {
+    "start": "01:20",
+    "end": "01:22",
+    "text": "And you know that I need you"
+  },
+  {
+    "start": "01:22",
+    "end": "01:24",
+    "text": "Oh I want your bad"
+  },
+  {
+    "start": "01:24",
+    "end": "01:30",
+    "text": "I want your love and I want your revenge"
+  },
+  {
+    "start": "01:30",
+    "end": "01:34",
+    "text": "You make a right battle dance"
+  },
+  {
+    "start": "01:34",
+    "end": "01:38",
+    "text": "I want your love and I want your love and I want your revenge"
+  },
+  {
+    "start": "01:38",
+    "end": "01:42",
+    "text": "You make a right battle dance"
+  },
+  {
+    "start": "01:42",
+    "end": "01:50",
+    "text": "Oh, I never land"
+  },
+  {
+    "start": "01:50",
+    "end": "01:58",
+    "text": "Oh, I never land"
+  },
+  {
+    "start": "01:58",
+    "end": "02:04",
+    "text": "From the world to the world"
+  },
+  {
+    "start": "02:04",
+    "end": "02:08",
+    "text": "I want your love and I want your revenge"
+  },
+  {
+    "start": "02:08",
+    "end": "02:11",
+    "text": "You're horror, I want your design"
+  },
+  {
+    "start": "02:11",
+    "end": "02:17",
+    "text": "Because you're a criminal, as long as you mind I want your love"
+  },
+  {
+    "start": "02:17",
+    "end": "02:22",
+    "text": "Love, love, love I want your love"
+  },
+  {
+    "start": "02:23",
+    "end": "02:27",
+    "text": "I want your psycho, your vertical stick"
+  },
+  {
+    "start": "02:27",
+    "end": "02:33",
+    "text": "While you make my window, baby, you sick I want your love"
+  },
+  {
+    "start": "02:33",
+    "end": "02:36",
+    "text": "Love, love, love I want your love"
+  },
+  {
+    "start": "02:36",
+    "end": "02:39",
+    "text": "Love, love, love I want your love"
+  },
+  {
+    "start": "02:39",
+    "end": "02:42",
+    "text": "You know that I want you"
+  },
+  {
+    "start": "02:42",
+    "end": "02:45",
+    "text": "Because I'm a free trade, baby, I want the best"
+  },
+  {
+    "start": "02:45",
+    "end": "02:47",
+    "text": "You bet the best"
+  },
+  {
+    "start": "02:47",
+    "end": "02:51",
+    "text": "I want your love and I want your revenge"
+  },
+  {
+    "start": "02:51",
+    "end": "02:55",
+    "text": "You make a right battle dance"
+  },
+  {
+    "start": "02:55",
+    "end": "02:58",
+    "text": "I want your love and I want your love"
+  },
+  {
+    "start": "02:58",
+    "end": "03:00",
+    "text": "I want your revenge"
+  },
+  {
+    "start": "03:00",
+    "end": "03:02",
+    "text": "You're an improvement"
+  },
+  {
+    "start": "03:02",
+    "end": "03:10",
+    "text": "Oh, I am an improvement"
+  },
+  {
+    "start": "03:10",
+    "end": "03:18",
+    "text": "Oh, I am an improvement"
+  },
+  {
+    "start": "03:18",
+    "end": "03:22",
+    "text": "Raa-a-a-a"
+  },
+  {
+    "start": "03:22",
+    "end": "03:25",
+    "text": "Roma-a-a-a-a-a-a-a-a-a-a-a Roma-a-a-a-a"
+  },
+  {
+    "start": "03:25",
+    "end": "03:28",
+    "text": "Ralala, welcome to a better room"
+  },
+  {
+    "start": "03:28",
+    "end": "03:35",
+    "text": "Però Rederopばか Defend the"
+  },
+  {
+    "start": "03:35",
+    "end": "03:38",
+    "text": "orders"
+  },
+  {
+    "start": "03:39",
+    "end": "03:44",
+    "text": "Rev informal"
+  },
+  {
+    "start": "03:44",
+    "end": "03:47",
+    "text": "F hurry today"
+  },
+  {
+    "start": "03:48",
+    "end": "03:50",
+    "text": "Rye"
+  },
+  {
+    "start": "03:50",
+    "end": "03:53",
+    "text": "To the"
+  },
+  {
+    "start": "03:53",
+    "end": "03:57",
+    "text": "Hall of Fame"
+  },
+  {
+    "start": "03:57",
+    "end": "03:59",
+    "text": "I don't wanna be friends"
+  },
+  {
+    "start": "03:59",
+    "end": "04:01",
+    "text": "I don't wanna be friends"
+  },
+  {
+    "start": "04:01",
+    "end": "04:03",
+    "text": "I don't wanna be friends"
+  },
+  {
+    "start": "04:03",
+    "end": "04:05",
+    "text": "I don't wanna be friends"
+  },
+  {
+    "start": "04:05",
+    "end": "04:07",
+    "text": "I don't wanna be friends"
+  },
+  {
+    "start": "04:07",
+    "end": "04:09",
+    "text": "I don't wanna be friends"
+  },
+  {
+    "start": "04:09",
+    "end": "04:11",
+    "text": "I don't wanna be friends"
+  },
+  {
+    "start": "04:11",
+    "end": "04:13",
+    "text": "I don't wanna be friends"
+  },
+  {
+    "start": "04:13",
+    "end": "04:15",
+    "text": "I don't wanna be friends"
+  },
+  {
+    "start": "04:15",
+    "end": "04:17",
+    "text": "I don't wanna be friends"
+  },
+  {
+    "start": "04:17",
+    "end": "04:19",
+    "text": "I don't wanna be friends"
+  },
+  {
+    "start": "04:19",
+    "end": "04:21",
+    "text": "I don't wanna be friends"
+  },
+  {
+    "start": "04:21",
+    "end": "04:23",
+    "text": "I don't wanna be friends"
+  },
+  {
+    "start": "04:23",
+    "end": "04:25",
+    "text": "I don't wanna be friends"
+  },
+  {
+    "start": "04:25",
+    "end": "04:26",
+    "text": "I know I know you know"
+  },
+  {
+    "start": "04:26",
+    "end": "04:27",
+    "text": "I'll forget you with me"
+  },
+  {
+    "start": "04:27",
+    "end": "04:37",
+    "text": "Could I run a張"
+  },
+  {
+    "start": "04:37",
+    "end": "04:37",
+    "text": "I won't take them away"
+  },
+  {
+    "start": "04:38",
+    "end": "04:46",
+    "text": "I won't take them away"
+  },
+  {
+    "start": "04:47",
+    "end": "04:51",
+    "text": "Ra-Rama"
+  },
+  {
+    "start": "04:51",
+    "end": "04:54",
+    "text": "IMO"
+  }
 ]
