@@ -9,7 +9,7 @@ import axios from 'axios';
  */
 export const fetchTranscript = async (apiEndpoint, videoId) => {
   try {
-    const response = await axios.get(`${apiEndpoint}/${videoId}`);
+    const response = await axios.get(`${apiEndpoint}${videoId}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching transcript:', error);

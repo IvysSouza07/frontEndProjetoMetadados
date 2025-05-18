@@ -8,7 +8,8 @@ const api = axios.create({
 
 // Function to handle video uploads with progress tracking
 export const uploadVideo = (formData, onProgress) => {
-  return api.post(import.meta.env.VITE_UPLOAD_ENDPOINT, formData, {
+  // formData.append("file", file); // Certifique-se de usar "file"
+  return api.post("/transcribe/", formData, {
     headers: { 
       "Content-Type": "multipart/form-data" // Required header for file uploads
     },

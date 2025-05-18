@@ -17,12 +17,13 @@ const VideoUploader = () => {
   const [fileInfo, setFileInfo] = useState(null); // Information about the uploaded file
   const [showSuccessModal, setShowSuccessModal] = useState(false); // Visibility of the success modal
   const [uploadMode, setUploadMode] = useState(
-    import.meta.env.VITE_USE_FAKE_UPLOAD === "true" // Determines if fake upload mode is enabled
+    import.meta.env.VITE_USE_FAKE_UPLOAD === "false" // Determines if fake upload mode is enabled
   );
   const [error, setError] = useState(null); // Error message during upload
   const [videoURL, setVideoURL] = useState(null); // URL of the uploaded video
   const [isUploadComplete, setIsUploadComplete] = useState(false); // Upload completion status
-  const [videoId] = useState("12345"); // ID fictício do vídeo para o TimeStamp
+  const [videoId] = useState("10"); // ID fictício do vídeo para o TimeStamp
+  const [videoData, setVideoData] = useState(null)
 
   const controllerRef = useRef(null); // Referência para cancelar uploads reais
   const intervalRef = useRef(null); // Referência para gerenciar intervalos de upload simulado
@@ -39,13 +40,13 @@ const VideoUploader = () => {
     setError(null);
 
     const formData = new FormData();
-    formData.append("video", file);
+    formData.append("file", file); // campo correto
 
     controllerRef.current = new AbortController();
 
     try {
-      await axios.post(
-        import.meta.env.VITE_API_URL + import.meta.env.VITE_UPLOAD_ENDPOINT,
+      const result = await axios.post(
+        import.meta.env.VITE_API_URL + "/transcribe", // endpoint correto
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -57,6 +58,7 @@ const VideoUploader = () => {
         }
       );
 
+      setVideoData(result.data)
       setShowSuccessModal(true);
       setVideoURL(URL.createObjectURL(file));
       setIsUploadComplete(true);
@@ -203,9 +205,10 @@ const VideoUploader = () => {
           </div>
           <div className="video-transcript">
             <TimeStamp
+              data={videoData}
               videoRef={videoRef}
               videoId={videoId}
-              apiEndpoint={import.meta.env.VITE_API_URL + "/transcripts"}
+              apiEndpoint={import.meta.env.VITE_API_URL + "/transcribe/"}
             />
           </div>
         </div>

@@ -5,7 +5,7 @@ import { fetchTranscript as fetchTranscriptUtil } from '../../utils/apiUtils';
 import bad_romance_lyrics from '../../assets/bad-romance-lyrics.json';
 import './timeStamp.css';
 
-const VideoTranscript = ({ videoRef, videoId, apiEndpoint }) => {
+const VideoTranscript = ({ videoRef, videoId, apiEndpoint, data }) => {
   const [transcript, setTranscript] = useState(null);
   const [currentSegment, setCurrentSegment] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -17,7 +17,7 @@ const VideoTranscript = ({ videoRef, videoId, apiEndpoint }) => {
     setError(null);
 
     try {
-      const transcriptData = await fetchTranscriptUtil(apiEndpoint, videoId);
+      const transcriptData = data;
       setTranscript(transcriptData);
     } catch (err) {
       console.error('Error fetching transcript, loading local JSON:', err);
@@ -98,12 +98,15 @@ const VideoTranscript = ({ videoRef, videoId, apiEndpoint }) => {
                 className={
                   (currentSegment === segment ? 'active ' : '') + 'clean-list-item'
                 }
-                onClick={() => seekToTime(segment.start)}
+                onClick={() => seekToTime(Number(segment.start))} // Garante que é número
+                style={{ cursor: 'pointer' }} // Indica que é clicável
               >
                 <span className="clean-segment-time">
                   {formatTime(segment.start)} - {formatTime(segment.end)}
                 </span>
-                <span className="clean-segment-text">{segment.text}</span>
+                <span className="clean-segment-text">
+                  {segment.text}
+                </span>
               </li>
             ))}
           </ul>
